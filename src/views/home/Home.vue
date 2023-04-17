@@ -3,7 +3,9 @@
     <header>
         <HeaderMusic></HeaderMusic>
     </header>
-
+    <main>
+      <router-view></router-view>
+    </main>
     <footer>
         <FooterMusic></FooterMusic>
     </footer>
