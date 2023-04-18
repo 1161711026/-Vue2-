@@ -1,9 +1,9 @@
 <template>
     <div class="Song-secion">
         <div class="top">
-            <h2>热门推荐</h2>
+            <h2>{{header.title}}</h2>
             <div class="font">
-                <span v-for="item in viewTitle" :key="item.id">{{ item.val }}</span>
+                <span v-for="item in header.viceTitle" :key="item.id">{{ item.val }}</span>
             </div>
             <span class="more">
                 更多
@@ -13,19 +13,14 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            Title: "热门推荐",
-            viewTitle: [
-                { id: 1, val: "华语" },
-                { id: 2, val: "流行" },
-                { id: 3, val: "摇滚" },
-                { id: 4, val: "民谣" },
-                { id: 5, val: "电子" },
-            ]
+export default {  
+    props: {
+        header:{
+            default: () =>{
+                return {title:"",viceTitle:[]}
+            }
         }
-    },
+    }
 }
 </script>
 
@@ -50,7 +45,6 @@ export default {
             position: relative;
             background: url(../assets/imgs/index.png);
             background-position: -228px -156px;
-
         }
 
         h2 {
