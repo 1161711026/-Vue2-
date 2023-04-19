@@ -2,7 +2,7 @@
     <div class="newSongWrap">
         <div class="container">
             <div class="move" :style="`left:${xpx}`">
-                <newSongItem v-for="item in newSongs" :key="item.index" :song="item"></newSongItem>
+                <newSongItem v-for="item in newSongData" :key="item.id" :song="item"></newSongItem>
             </div>
         </div>
         <button class="fl" @click="fl">&lt;</button>
@@ -13,8 +13,8 @@
 <script>
 import newSongItem from './newSong-item.vue';
 export default {
-    created(){
-        
+    created() {
+
     },
     components: {
         newSongItem
@@ -31,30 +31,23 @@ export default {
         }
     },
     computed: {
-        newSongs() {
-        
-            const head = this.newSongData.slice(10, 15);
-            const tail = this.newSongData.slice(0, 5);
-         
-            return [...head,...this.newSongData.slice(0, 15),...tail];
-        },
-        xpx(){
+        xpx() {
             return this.x + (this.currentId * 640) + "px";
         }
     },
-    methods:{
-        fr(){
-            this.currentId --;
-            if(this.currentId==-4){
+    methods: {
+        fr() {
+            this.currentId--;
+            if (this.currentId == -4) {
                 this.currentId = 0;
             }
         },
-        fl(){
-            this.currentId ++;
-           if(this.currentId == 0){
-               
+        fl() {
+            this.currentId++;
+            if (this.currentId == 0) {
+
                 this.currentId = -3;
-           }
+            }
         }
     }
 }

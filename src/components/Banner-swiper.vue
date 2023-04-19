@@ -6,7 +6,7 @@
                 <div class="loadIcon"></div>
             </div>
             <el-carousel indicator-position="outside" height="100%" arrow="always" @change="changeBanner">
-                <el-carousel-item v-for="item in bannerData" :key="item.encodeId">
+                <el-carousel-item v-for="item in bannerData" :key="item.index">
                     <a :href="item.url">
                         <img :src="item != undefined ? item.imageUrl : undefined" alt="" />
                     </a>
@@ -42,6 +42,7 @@ export default {
             const { data } = await this.$api.banner.getBanner();
             if (data.code == 200) {
                 this.bannerData = data.banners;
+           
             }
         },
         changeBanner(val, oldval) {

@@ -40,5 +40,23 @@ export default{
                 ids,
             }
         })
+    },
+    getSongUrl(id){
+        return axios({
+            url: "/song/url/v1",
+            params:{
+                id,
+                level: "standard"
+            }
+        })
+    },
+    getSongList(id){
+        return axios({
+            url: "/playlist/track/all",
+            params: {
+                id,
+                limit: 1,
+            }
+        })
     }
 }

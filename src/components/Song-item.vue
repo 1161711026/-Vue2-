@@ -4,7 +4,7 @@
         <div class="icons">
             <div class="radio"></div>
             <div class="playCount">{{playCount}}</div>
-            <div class="play"></div>
+            <div class="play" @click="play(song.id)"></div>
         </div>
         <p>{{ str }}</p>
     </div>
@@ -31,6 +31,11 @@ export default {
             else{
                 return this.song.playCount;
             }
+        }
+    },
+    methods:{
+        play(payload){
+            this.$store.dispatch("getSongListAsync",payload);
         }
     }
 }
